@@ -19,11 +19,6 @@ DallasTemperature sensors(&oneWire);
 #define PSDI_SERVICE_UUID "e625601e-9e55-4597-a598-76018a0d293d"
 #define PSDI_CHARACTERISTIC_UUID "26e2b12b-85f0-4f3f-9fdd-91d114270e6e"
 
-"serviceUuid":"5fe83910-3522-44e3-85c9-13f9b017b72f",
-"psdiServiceUuid":"e625601e-9e55-4597-a598-76018a0d293d",
-"psdiCharacteristicUuid":"26e2b12b-85f0-4f3f-9fdd-91d114270e6e"}
-
-
 #define RELAY 2
 #define ON 0
 #define OFF 1
