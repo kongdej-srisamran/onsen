@@ -41,6 +41,7 @@ body, table {
       transform: translateY(4pt);
       box-shadow: 0 2pt 4pt 0 rgba(0,0,0,0.2), 0 1pt 5pt 0 rgba(0,0,0,0.19);
       background-color: #6c0000; /* Gray */
+      margin-bottom: 8pt;
   }
   
   .led-on, .led-on:active {
@@ -50,7 +51,7 @@ body, table {
   .btn-state {
       box-shadow: 0pt 6pt #999;
       border-radius: 4pt;
-      margin-bottom: 8pt;
+      margin-bottom: 1pt;
       width: 50pt;
       border: 1pt solid #6c757d; /* Gray */
       color: #6c757d; /* Gray */
