@@ -23,7 +23,7 @@ DallasTemperature sensors(&oneWire);
 #define ON 0
 #define OFF 1
 
-unsigned int timeout=0;
+int timeout=0;
 unsigned int low=60;
 unsigned int high=70;
 unsigned int cmd=0;
@@ -114,20 +114,34 @@ void loop() {
 
   sensors.requestTemperatures(); // Send the command to get temperatures
   float tempC = sensors.getTempCByIndex(0);   //tempC = random(100, 500) / 10.0;  //Simulation
-  timeout = timeout > 0 ? timeout-1 : 0;
-  if (timeout == 0) {
-    digitalWrite(RELAY, OFF);
-  }
-  else {
-    if (tempC <= low)  {
-      Serial.println("Start by low");
-      digitalWrite(RELAY, ON);    
+  
+  if (timeout  == -1) {
+    if (cmd == 1) {
+      Serial.println('ON forever');
+      digitalWrite(RELAY, ON);
+    }
+    else {
+      Serial.println('OFF forever');
+      digitalWrite(RELAY,OFF);
     }
   }
-  
-  if (tempC >= high)  {
-    Serial.println("Stop with high");
-    digitalWrite(RELAY, OFF);
+  else {
+    timeout = timeout > 0 ? timeout-1 : 0;
+    
+    if (timeout == 0) {
+      digitalWrite(RELAY, OFF);
+    }
+    else {
+      if (tempC <= low)  {
+        Serial.println("Start by low");
+        digitalWrite(RELAY, ON);    
+      }
+    }
+    
+    if (tempC >= high)  {
+      Serial.println("Stop with high");
+      digitalWrite(RELAY, OFF);
+    }
   }
     
   int relaystatus = digitalRead(RELAY);
